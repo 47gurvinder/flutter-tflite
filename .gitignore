@@ -44,6 +44,8 @@ GeneratedPluginRegistrant.swift
 generated_plugin_registrant.dart
 
 build/
+.build/
+.swiftpm/
 .flutter-plugins
 .flutter-plugins-dependencies
 

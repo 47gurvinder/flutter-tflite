@@ -5,7 +5,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'tflite_flutter_gdx_plus'
-  s.version          = '0.12.2'
+  s.version          = '0.12.3'
   s.summary          = 'Community-maintained TensorFlow Lite plugin for Flutter.'
   s.description      = <<-DESC
 Fast Dart FFI access to TensorFlow Lite for Flutter applications.
@@ -17,16 +17,12 @@ Fast Dart FFI access to TensorFlow Lite for Flutter applications.
     'Original authors and contributors' => 'https://github.com/dropout/flutter-tflite'
   }
 
-  # This will ensure the source files in Classes/ are included in the native
-  # builds of apps using this FFI plugin. Podspec does not support relative
-  # paths, so Classes contains a forwarder C file that relatively imports
-  # `../src/*` so that the C sources can be shared among all target platforms.
   s.source           = { :path => '.' }
-  # s.source_files = 'Classes/**/*'
+  s.source_files     = 'tflite_flutter_gdx_plus/Sources/tflite_flutter_gdx_plus/**/*'
   
   s.dependency 'Flutter'
   
-  tflite_version = '2.12.0'
+  tflite_version = '2.14.0'
   s.dependency 'TensorFlowLiteSwift', tflite_version
   s.dependency 'TensorFlowLiteSwift/Metal', tflite_version
   s.dependency 'TensorFlowLiteSwift/CoreML', tflite_version

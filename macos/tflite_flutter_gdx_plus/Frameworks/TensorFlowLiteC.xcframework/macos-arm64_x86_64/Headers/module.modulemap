@@ -1,0 +1,4 @@
+module TensorFlowLiteC {
+  header "c_api.h"
+  export *
+}

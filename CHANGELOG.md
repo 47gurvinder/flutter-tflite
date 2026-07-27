@@ -1,3 +1,11 @@
+## 0.12.3 (July 27, 2026)
+
+* Added Swift Package Manager support for iOS and macOS while retaining
+  CocoaPods compatibility.
+* Updated the Apple TensorFlow Lite runtime to 2.14.0.
+* Updated the iOS image-segmentation and macOS text-classification examples
+  for Swift Package Manager integration.
+
 ## 0.12.2 (July 27, 2026)
 
 * Renamed the published package to `tflite_flutter_gdx_plus`.

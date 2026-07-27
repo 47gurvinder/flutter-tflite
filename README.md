@@ -58,8 +58,8 @@ Android, Metal and Core ML delegates on iOS, and XNNPACK on desktop.
 | Platform | Support | Notes |
 | --- | --- | --- |
 | Android | Supported | Current bundled native libraries require Android API 26 or newer at runtime. Android builds use LiteRT 1.4.0 and support 16 KB page sizes. |
-| iOS | Supported | iOS 11 or newer. Test on a physical device; simulator support can vary. |
-| macOS | Supported | A TensorFlow Lite C dynamic library must be supplied by the application. |
+| iOS | Supported | Swift Package Manager requires iOS 13 or newer. CocoaPods continues to support iOS 11 or newer. |
+| macOS | Supported | Swift Package Manager and CocoaPods bundle the included universal library and require macOS 13 or newer. |
 | Linux | Supported | A TensorFlow Lite C shared library must be supplied by the application. |
 | Windows | Supported | A TensorFlow Lite C DLL must be supplied by the application. |
 | Web | Not supported | This package uses native FFI libraries. |
@@ -78,7 +78,7 @@ Or add it directly to your application's `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  tflite_flutter_gdx_plus: ^0.12.2
+  tflite_flutter_gdx_plus: ^0.12.3
 ```
 
 Then import the public library:
@@ -103,8 +103,9 @@ The current native Android libraries require API level 26 or newer at runtime.
 
 ### iOS
 
-iOS dependencies are downloaded by CocoaPods. Build and install from the
-example application's directory:
+iOS dependencies are downloaded by Swift Package Manager on Flutter 3.44 and
+newer. CocoaPods remains supported for older or opted-out projects. Build and
+install from the example application's directory:
 
 ```sh
 flutter build ios
@@ -121,21 +122,9 @@ Symbols**.
 
 ### macOS
 
-Build `libtensorflowlite_c.dylib` by following the TensorFlow Lite
-[Bazel build guide](https://www.tensorflow.org/lite/guide/build_arm) or
-[CMake build guide](https://www.tensorflow.org/lite/guide/build_cmake).
-
-For a universal library, build the required architectures and combine them:
-
-```sh
-lipo -create \
-  arm64/libtensorflowlite_c.dylib \
-  x86/libtensorflowlite_c.dylib \
-  -output libtensorflowlite_c.dylib
-```
-
-Add the library to the application by following Flutter's
-[macOS C interop guide](https://docs.flutter.dev/platform-integration/macos/c-interop#compiled-dynamic-library-macos).
+The plugin bundles a universal TensorFlow Lite C dynamic library for arm64 and
+x86_64 macOS builds. Flutter 3.44 and newer links it with Swift Package
+Manager; CocoaPods remains supported for older or opted-out projects.
 
 ### Linux
 

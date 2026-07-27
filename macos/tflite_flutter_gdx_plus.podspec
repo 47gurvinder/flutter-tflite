@@ -5,7 +5,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'tflite_flutter_gdx_plus'
-  s.version          = '0.12.2'
+  s.version          = '0.12.3'
   s.summary          = 'Community-maintained TensorFlow Lite plugin for Flutter.'
   s.description      = <<-DESC
 Fast Dart FFI access to TensorFlow Lite for Flutter applications.
@@ -18,13 +18,12 @@ Fast Dart FFI access to TensorFlow Lite for Flutter applications.
   }
 
   s.source           = { :path => '.' }
-  #s.source           = { :http => 'https://github.com/CaptainDario/DaKanji-Dependencies/releases/download/v3.0.0/libtensorflowlite_c-mac.dylib.zip' }
-  s.source_files     = 'Classes/**/*'
+  s.source_files     = 'tflite_flutter_gdx_plus/Sources/tflite_flutter_gdx_plus/**/*'
   s.dependency 'FlutterMacOS'
 
-  s.platform = :osx, '10.11'
+  s.platform = :osx, '13.0'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0'
 
-  #s.vendored_libraries = 'libtensorflowlite_c-mac.dylib'
+  s.vendored_libraries = 'libtensorflowlite_c-mac.dylib'
 end

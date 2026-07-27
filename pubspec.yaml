@@ -16,7 +16,7 @@
 
 name: tflite_flutter_gdx_plus
 description: Community-maintained TensorFlow Lite Flutter plugin with a fast Dart FFI API for on-device inference across mobile and desktop platforms.
-version: 0.12.2
+version: 0.12.3
 homepage: https://gurwinderdevx.com/
 repository: https://github.com/47gurvinder/flutter-tflite
 issue_tracker: https://github.com/47gurvinder/flutter-tflite/issues
@@ -64,8 +64,10 @@ flutter:
       android:
         ffiPlugin: true
       ios:
+        pluginClass: TfliteFlutterPlugin
         ffiPlugin: true
-      macos: 
+      macos:
+        pluginClass: TfliteFlutterPlugin
         ffiPlugin: true
       linux:
         ffiPlugin: true
