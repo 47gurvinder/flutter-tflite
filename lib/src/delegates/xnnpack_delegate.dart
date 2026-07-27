@@ -1,3 +1,4 @@
+// Modified 2026 by Gurwinder Singh for the tflite_flutter_gdx_plus distribution.
 /*
  * Copyright 2023 The TensorFlow Authors. All Rights Reserved.
  *
@@ -17,8 +18,8 @@ import 'dart:ffi';
 
 import 'package:ffi/ffi.dart';
 import 'package:quiver/check.dart';
-import 'package:tflite_flutter/src/bindings/bindings.dart';
-import 'package:tflite_flutter/src/bindings/tensorflow_lite_bindings_generated.dart';
+import 'package:tflite_flutter_gdx_plus/src/bindings/bindings.dart';
+import 'package:tflite_flutter_gdx_plus/src/bindings/tensorflow_lite_bindings_generated.dart';
 
 import '../delegate.dart';
 

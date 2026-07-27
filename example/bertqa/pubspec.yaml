@@ -1,3 +1,4 @@
+# Modified 2026 for the tflite_flutter_gdx_plus distribution.
 name: bertqa
 description: An end-to-end example of BERT Question & Answer application
 # The following line prevents the package from being accidentally published to
@@ -30,7 +31,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  tflite_flutter:
+  tflite_flutter_gdx_plus:
       path: ../../
 
   # The following adds the Cupertino Icons font to your application.

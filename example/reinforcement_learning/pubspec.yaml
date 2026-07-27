@@ -1,3 +1,4 @@
+# Modified 2026 for the tflite_flutter_gdx_plus distribution.
 name: tflite_flutter_plugin_rl_example
 description: Demonstrates how to use the tflite_flutter_plugin plugin.
 publish_to: "none"
@@ -11,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  tflite_flutter:
+  tflite_flutter_gdx_plus:
     path: ../../
   path_provider: ^2.0.1
   # The following adds the Cupertino Icons font to your application.

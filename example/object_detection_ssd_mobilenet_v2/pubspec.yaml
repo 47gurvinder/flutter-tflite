@@ -1,3 +1,4 @@
+# Modified 2026 for the tflite_flutter_gdx_plus distribution.
 name: object_detection_ssd_mobilenet_v2
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
@@ -34,7 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  tflite_flutter: ^0.11.0 
+  tflite_flutter_gdx_plus:
+    path: ../../
   image_picker: ^0.8.8
   image: ^4.0.17
 

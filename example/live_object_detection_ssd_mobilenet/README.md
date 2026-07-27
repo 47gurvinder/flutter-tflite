@@ -1,3 +1,5 @@
+<!-- Modified in 2026 for tflite_flutter_gdx_plus. -->
+
 # Object Detection
 
 |      | Android | iOS | Linux | Mac | Windows | Web |
@@ -8,7 +10,7 @@ Live object detection example following [this](https://www.tensorflow.org/lite/e
 
 ## Overview
 
-This application is a simple demonstration of the [tflite_flutter](https://pub.dev/packages/tflite_flutter) package.
+This application is a simple demonstration of the [tflite_flutter_gdx_plus](https://pub.dev/packages/tflite_flutter_gdx_plus) package.
 
 Object detection applies on an image stream from camera (portrait mode only for the showcase purpose).
 All expensive and heavy operations are performed in a separate background isolate.

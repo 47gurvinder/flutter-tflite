@@ -1,3 +1,4 @@
+// Modified 2026 by Gurwinder Singh for the tflite_flutter_gdx_plus distribution.
 /*
  * Copyright 2023 The TensorFlow Authors. All Rights Reserved.
  *
@@ -17,7 +18,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:tflite_flutter_gdx_plus/tflite_flutter_gdx_plus.dart';
 
 class ObjectDetection {
   static const String _modelPath = 'assets/models/ssd_mobilenet.tflite';

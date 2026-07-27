@@ -1,17 +1,21 @@
+# Modified 2026 for the tflite_flutter_gdx_plus distribution.
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint tflite_flutter.podspec` to validate before publishing.
+# Run `pod lib lint tflite_flutter_gdx_plus.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'tflite_flutter'
-  s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.name             = 'tflite_flutter_gdx_plus'
+  s.version          = '0.12.2'
+  s.summary          = 'Community-maintained TensorFlow Lite plugin for Flutter.'
   s.description      = <<-DESC
-A new Flutter plugin project.
+Fast Dart FFI access to TensorFlow Lite for Flutter applications.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://gurwinderdevx.com/'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.authors          = {
+    'Gurwinder Singh' => 'contact@gurwinderdevx.com',
+    'Original authors and contributors' => 'https://github.com/dropout/flutter-tflite'
+  }
 
   s.source           = { :path => '.' }
   #s.source           = { :http => 'https://github.com/CaptainDario/DaKanji-Dependencies/releases/download/v3.0.0/libtensorflowlite_c-mac.dylib.zip' }

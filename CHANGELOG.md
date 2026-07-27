@@ -1,3 +1,12 @@
+## 0.12.2 (July 27, 2026)
+
+* Renamed the published package to `tflite_flutter_gdx_plus`.
+* Migrated the maintained repository, issue tracker, and package metadata to
+  `47gurvinder/flutter-tflite`.
+* Added Android build compatibility for newer Flutter toolchains by applying
+  the Kotlin Android plugin and aligning the Kotlin JVM target.
+* Fixed the Android build configuration of the text classification example.
+
 ## 0.12.1 (October 28, 2025)
 * **CRITICAL FIX**: Properly implement Android 16KB page size support
 * Migrated from TensorFlow Lite 2.12.0 to Google AI Edge LiteRT 1.4.0

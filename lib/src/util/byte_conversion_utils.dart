@@ -1,3 +1,4 @@
+// Modified 2026 by Gurwinder Singh for the tflite_flutter_gdx_plus distribution.
 /*
  * Copyright 2023 The TensorFlow Authors. All Rights Reserved.
  *
@@ -18,7 +19,7 @@ import 'dart:convert';
 import 'dart:ffi';
 import 'dart:typed_data';
 
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:tflite_flutter_gdx_plus/tflite_flutter_gdx_plus.dart';
 
 class ByteConversionError extends ArgumentError {
   ByteConversionError({

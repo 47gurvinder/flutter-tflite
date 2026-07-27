@@ -44,4 +44,6 @@ app.*.map.json
 /android/app/release
 
 # ignore tf lite models
-assets/models/**
+assets/models/*
+!assets/models/README.md
+# Modified 2026 for the tflite_flutter_gdx_plus distribution.

@@ -1,3 +1,4 @@
+# Modified 2026 for the tflite_flutter_gdx_plus distribution.
 name: image_classification_mobilenet
 description: Image Classification using mobilenet.
 
@@ -16,7 +17,7 @@ dependencies:
   path: ^1.8.3
   path_provider: ^2.0.15
   image_picker: ^0.8.8
-  tflite_flutter:
+  tflite_flutter_gdx_plus:
     path: ../../
 
 dev_dependencies:

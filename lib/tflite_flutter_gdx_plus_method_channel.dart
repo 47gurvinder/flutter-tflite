@@ -1,7 +1,8 @@
+// Modified 2026 by Gurwinder Singh for the tflite_flutter_gdx_plus distribution.
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'tflite_flutter_platform_interface.dart';
+import 'tflite_flutter_gdx_plus_platform_interface.dart';
 
 /// An implementation of [TfliteFlutterPlatform] that uses method channels.
 class MethodChannelTfliteFlutter extends TfliteFlutterPlatform {

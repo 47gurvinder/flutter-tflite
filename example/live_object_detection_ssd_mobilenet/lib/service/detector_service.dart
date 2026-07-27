@@ -1,3 +1,4 @@
+// Modified 2026 by Gurwinder Singh for the tflite_flutter_gdx_plus distribution.
 // Copyright 2023 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -12,7 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:image/image.dart' as image_lib;
 import 'package:live_object_detection_ssd_mobilenet/models/recognition.dart';
 import 'package:live_object_detection_ssd_mobilenet/utils/image_utils.dart';
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:tflite_flutter_gdx_plus/tflite_flutter_gdx_plus.dart';
 
 ///////////////////////////////////////////////////////////////////////////////
 // **WARNING:** This is not production code and is only intended to be used for

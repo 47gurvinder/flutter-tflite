@@ -1,0 +1,20 @@
+tflite_flutter_gdx_plus
+Copyright 2026 Gurwinder Singh
+
+This distribution continues the community-maintained flutter-tflite
+repository:
+https://github.com/dropout/flutter-tflite
+
+That repository is based on TensorFlow's flutter-tflite project:
+https://github.com/tensorflow/flutter-tflite
+
+TensorFlow's project is itself a managed fork of Amish Garg's original
+tflite_flutter_plugin project:
+https://github.com/am15h/tflite_flutter_plugin
+
+The original authors and contributors remain credited in AUTHORS and the
+project history. The software is distributed under the Apache License,
+Version 2.0, included in LICENSE.
+
+The maintained derivative changes the published package identity, project
+metadata, documentation, repository links, and maintenance infrastructure.

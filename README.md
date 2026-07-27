@@ -1,106 +1,150 @@
- <p align="center">
-    <br>
-    <img src="https://github.com/am15h/tflite_flutter_plugin/raw/update_readme/docs/tflite_flutter_cover.png"/>
-    </br>
-</p>
+<!--
+  Modified in 2026 for the community-maintained tflite_flutter_gdx_plus
+  distribution. Original project credits and licensing are preserved below.
+-->
+
 <p align="center">
-
-   <a href="https://flutter.dev">
-     <img src="https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter"
-       alt="Platform" />
-   </a>
-   <a href="https://pub.dartlang.org/packages/tflite_flutter">
-     <img src="https://img.shields.io/pub/v/tflite_flutter.svg"
-       alt="Pub Package" />
-   </a>
-    <a href="https://pub.dev/documentation/tflite_flutter/latest/tflite_flutter/tflite_flutter-library.html">
-        <img alt="Docs" src="https://readthedocs.org/projects/hubdb/badge/?version=latest">
-    </a>
-    <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"></a>
-
-</a>
+  <img src="doc/tflite_flutter_cover.png"
+       alt="TensorFlow Lite Flutter plugin cover" />
 </p>
 
-## Announcement
+<p align="center">
+  <a href="https://flutter.dev">
+    <img src="https://img.shields.io/badge/platform-Flutter-02569B?logo=flutter"
+         alt="Flutter platform" />
+  </a>
+  <a href="https://pub.dev/packages/tflite_flutter_gdx_plus">
+    <img src="https://img.shields.io/pub/v/tflite_flutter_gdx_plus.svg"
+         alt="Pub package version" />
+  </a>
+  <a href="https://pub.dev/documentation/tflite_flutter_gdx_plus/latest/">
+    <img src="https://img.shields.io/badge/API-reference-blue"
+         alt="API reference" />
+  </a>
+  <a href="https://github.com/47gurvinder/flutter-tflite/actions/workflows/flutter-ci.yml">
+    <img src="https://github.com/47gurvinder/flutter-tflite/actions/workflows/flutter-ci.yml/badge.svg"
+         alt="Flutter CI" />
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg"
+         alt="Apache 2.0 license" />
+  </a>
+</p>
 
-Update: 26 April, 2023
+# tflite_flutter_gdx_plus
 
-This repo is a TensorFlow managed fork of the [tflite_flutter_plugin](https://github.com/am15h/tflite_flutter_plugin) project by the amazing Amish Garg. The goal of this project is to support our Flutter community in creating machine-learning backed apps with the TensorFlow Lite framework.
+A community-maintained Flutter plugin that provides a flexible, low-latency
+Dart API for TensorFlow Lite inference. It binds directly to the TensorFlow
+Lite C API through Dart FFI and follows the structure of the native Java and
+Swift APIs.
 
-This project is currently a work-in-progress as we update it to create a working plugin that meets the latest and greatest Flutter and TensorFlow Lite standards. That said, *pull requests and contributions are more than welcome* and will be reviewed by TensorFlow or Flutter team members. We thank you for your understanding as we make progress on this update.
+The plugin supports CPU inference, multithreading, background-isolate
+execution, and platform acceleration through NNAPI and GPU delegates on
+Android, Metal and Core ML delegates on iOS, and XNNPACK on desktop.
 
-Feel free to reach out to us by posting in the issues or discussion areas.
+## Features
 
-Thanks!
+- Run any compatible `.tflite` model from an asset, file, or byte buffer.
+- Use single-input or multi-input/multi-output inference.
+- Keep the UI responsive with `IsolateInterpreter`.
+- Configure interpreter threads and hardware delegates.
+- Target Android, iOS, Linux, macOS, and Windows.
+- Use the included classification, detection, segmentation, pose, style
+  transfer, super-resolution, question-answering, and reinforcement-learning
+  examples.
 
-- PaulTR
+## Compatibility
 
-## Overview
+| Platform | Support | Notes |
+| --- | --- | --- |
+| Android | Supported | Current bundled native libraries require Android API 26 or newer at runtime. Android builds use LiteRT 1.4.0 and support 16 KB page sizes. |
+| iOS | Supported | iOS 11 or newer. Test on a physical device; simulator support can vary. |
+| macOS | Supported | A TensorFlow Lite C dynamic library must be supplied by the application. |
+| Linux | Supported | A TensorFlow Lite C shared library must be supplied by the application. |
+| Windows | Supported | A TensorFlow Lite C DLL must be supplied by the application. |
+| Web | Not supported | This package uses native FFI libraries. |
 
-TensorFlow Lite Flutter plugin provides a flexible and fast solution for accessing TensorFlow Lite interpreter and performing inference. The API is similar to the TFLite Java and Swift APIs. It directly binds to TFLite C API making it efficient (low-latency). Offers acceleration support using NNAPI, GPU delegates on Android, Metal and CoreML delegates on iOS, and XNNPack delegate on Desktop platforms.
+The package requires Dart 3.3 or newer. Use a compatible stable Flutter SDK.
 
-## Key Features
+## Installation
 
-- Multi-platform Support for Android and iOS
-- Flexibility to use any TFLite Model.
-- Acceleration using multi-threading.
-- Similar structure as TensorFlow Lite Java API.
-- Inference speeds close to native Android Apps built using the Java API.
-- Run inference in different isolates to prevent jank in UI thread.
+Add the maintained package:
 
-## (Important) Initial setup : Add dynamic libraries to your app
+```sh
+flutter pub add tflite_flutter_gdx_plus
+```
 
-### Android & iOS
+Or add it directly to your application's `pubspec.yaml`:
 
-Examples and support now support dynamic library downloads! iOS samples can be run with the commands
+```yaml
+dependencies:
+  tflite_flutter_gdx_plus: ^0.12.2
+```
 
-`flutter build ios` & `flutter install ios` from their respective iOS folders.
+Then import the public library:
 
-Android can be run with the commands
+```dart
+import 'package:tflite_flutter_gdx_plus/tflite_flutter_gdx_plus.dart';
+```
 
-`flutter build android` & `flutter install android`
+## Platform setup
 
-while devices are plugged in.
+### Android
 
-Note: This requires a device with a minimum API level of 26.
+Android dependencies are downloaded by Gradle. Build and install on a
+connected device:
 
-Note: TFLite may not work in the iOS simulator. It's recommended that you test with a physical device.
+```sh
+flutter build apk
+flutter install
+```
 
-When creating a release archive (IPA), the symbols are stripped by Xcode, so the command `flutter build ipa` may throw a `Failed to lookup symbol ... symbol not found` error. To work around this:
+The current native Android libraries require API level 26 or newer at runtime.
 
-1. In Xcode, go to **Target Runner > Build Settings > Strip Style**
-2. Change from **All Symbols** to **Non-Global Symbols**
+### iOS
 
-### MacOS
+iOS dependencies are downloaded by CocoaPods. Build and install from the
+example application's directory:
 
-For MacOS a TensorFlow Lite dynamic library needs to be added to the project manually.
-For this, first a `.dylib` needs to be built. You can follow the [Bazel build guide](https://www.tensorflow.org/lite/guide/build_arm) or the [CMake build guide](https://www.tensorflow.org/lite/guide/build_cmake) to build the libraries.
+```sh
+flutter build ios
+flutter install
+```
 
-**CMake Note:**
+TensorFlow Lite may not work in every iOS simulator configuration, so testing
+on a physical device is recommended.
 
-- cross compiling in CMake can be achieved using:
-`-DCMAKE_OSX_ARCHITECTURES=x86_64|arm64`
+When creating an IPA, Xcode can strip symbols required by Dart FFI and report
+`Failed to lookup symbol ... symbol not found`. In Xcode, open **Runner >
+Build Settings > Strip Style** and change **All Symbols** to **Non-Global
+Symbols**.
 
-- bundling two architectures (arm / x86) using lipo:
-`lipo -create arm64/libtensorflowlite_c.dylib x86/libtensorflowlite_c.dylib -output libtensorflowlite_c.dylib`
+### macOS
 
-As a second step, the library needs to be added to your application's XCode project. For this, you can follow the step 1 and 2 of the [official Flutter guide on adding dynamic libraries](https://docs.flutter.dev/platform-integration/macos/c-interop#compiled-dynamic-library-macos).
+Build `libtensorflowlite_c.dylib` by following the TensorFlow Lite
+[Bazel build guide](https://www.tensorflow.org/lite/guide/build_arm) or
+[CMake build guide](https://www.tensorflow.org/lite/guide/build_cmake).
+
+For a universal library, build the required architectures and combine them:
+
+```sh
+lipo -create \
+  arm64/libtensorflowlite_c.dylib \
+  x86/libtensorflowlite_c.dylib \
+  -output libtensorflowlite_c.dylib
+```
+
+Add the library to the application by following Flutter's
+[macOS C interop guide](https://docs.flutter.dev/platform-integration/macos/c-interop#compiled-dynamic-library-macos).
 
 ### Linux
 
-For Linux a TensorFlow Lite dynamic library needs to be added to the project manually.
-For this, first a `.so` needs to be built. You can follow the [Bazel build guide](https://www.tensorflow.org/lite/guide/build_arm) or the [CMake build guide](https://www.tensorflow.org/lite/guide/build_cmake) to build the libraries.
+Build the TensorFlow Lite C `.so`, create a `blobs` directory at the
+application root, and copy the library there as
+`libtensorflowlite_c-linux.so`. Add this to the application's
+`linux/CMakeLists.txt`:
 
-As a second step, the library needs to be added to your application's project. This is a simple procedure
-
-1. Create a folder called `blobs` in the top level of your project
-2. Copy the `libtensorflowlite_c-linux.so` to this folder
-3. Append following lines to your `linux/CMakeLists.txt`
-
-``` Make
-...
-
-# get tf lite binaries
+```cmake
 install(
   FILES ${PROJECT_BUILD_DIR}/../blobs/libtensorflowlite_c-linux.so
   DESTINATION ${INSTALL_BUNDLE_DATA_DIR}/../blobs/
@@ -109,135 +153,182 @@ install(
 
 ### Windows
 
-For Windows a TensorFlow Lite dynamic library needs to be added to the project manually.
-For this, first a `.dll` needs to be built. You can follow the [Bazel build guide](https://www.tensorflow.org/lite/guide/build_arm) or the [CMake build guide](https://www.tensorflow.org/lite/guide/build_cmake) to build the libraries.
+Build the TensorFlow Lite C DLL, create a `blobs` directory at the application
+root, and copy the library there as `libtensorflowlite_c-win.dll`. Add this to
+the application's `windows/CMakeLists.txt`:
 
-As a second step, the library needs to be added to your application's project. This is a simple procedure
-
-1. Create a folder called `blobs` in the top level of your project
-2. Copy the `libtensorflowlite_c-win.dll` to this folder
-3. Append following lines to your `windows/CMakeLists.txt`
-
-``` Make
-...
-
-# get tf lite binaries
+```cmake
 install(
-  FILES ${PROJECT_BUILD_DIR}/../blobs/libtensorflowlite_c-win.dll 
+  FILES ${PROJECT_BUILD_DIR}/../blobs/libtensorflowlite_c-win.dll
   DESTINATION ${INSTALL_BUNDLE_DATA_DIR}/../blobs/
 )
 ```
 
-## TFLite Flutter Helper Library
+## Usage
 
-The helper library has been deprecated. New development underway for a replacement at <https://github.com/google/flutter-mediapipe>. Current timeline is to have wide support by the end of August, 2023.
+### Create an interpreter from an asset
 
-## Import
+Place the model in your application, declare it under `flutter.assets` in
+`pubspec.yaml`, and load it:
 
 ```dart
-import 'package:tflite_flutter/tflite_flutter.dart';
+final interpreter =
+    await Interpreter.fromAsset('assets/your_model.tflite');
 ```
 
-## Usage instructions
+The API also supports creating an interpreter from a file or buffer. See the
+[API reference](https://pub.dev/documentation/tflite_flutter_gdx_plus/latest/)
+for the available constructors and options.
 
-### Import the libraries
+### Run inference
 
-In the dependency section of `pubspec.yaml` file, add `tflite_flutter: ^0.10.1` (adjust the version accordingly based on the latest release)
+For one input and one output:
 
-### Creating the Interpreter
+```dart
+final input = [
+  [1.23, 6.54, 7.81, 3.21, 2.22],
+];
+final output = List<double>.filled(2, 0).reshape([1, 2]);
 
-- **From asset**
+interpreter.run(input, output);
+print(output);
+```
 
-    Place `your_model.tflite` in `assets` directory. Make sure to include assets in `pubspec.yaml`.
+For multiple inputs and outputs:
 
-    ```dart
-    final interpreter = await Interpreter.fromAsset('assets/your_model.tflite');
-    ```
+```dart
+final inputs = [
+  [1.23],
+  [2.43],
+];
+final outputs = <int, Object>{
+  0: List<double>.filled(1, 0),
+  1: List<double>.filled(1, 0),
+};
 
-Refer to the documentation for info on creating interpreter from buffer or file.
+interpreter.runForMultipleInputs(inputs, outputs);
+print(outputs);
+```
 
-### Performing inference
-
-- **For single input and output**
-
-    Use `void run(Object input, Object output)`.
-
-    ```dart
-    // For ex: if input tensor shape [1,5] and type is float32
-    var input = [[1.23, 6.54, 7.81, 3.21, 2.22]];
-
-    // if output tensor shape [1,2] and type is float32
-    var output = List.filled(1*2, 0).reshape([1,2]);
-
-    // inference
-    interpreter.run(input, output);
-
-    // print the output
-    print(output);
-    ```
-  
-- **For multiple inputs and outputs**
-
-    Use `void runForMultipleInputs(List<Object> inputs, Map<int, Object> outputs)`.
-
-    ```dart
-    var input0 = [1.23];  
-    var input1 = [2.43];  
-
-    // input: List<Object>
-    var inputs = [input0, input1, input0, input1];  
-
-    var output0 = List<double>.filled(1, 0);  
-    var output1 = List<double>.filled(1, 0);
-
-    // output: Map<int, Object>
-    var outputs = {0: output0, 1: output1};
-
-    // inference  
-    interpreter.runForMultipleInputs(inputs, outputs);
-
-    // print outputs
-    print(outputs)
-    ```
-
-### Closing the interpreter
+Always release native resources when inference is complete:
 
 ```dart
 interpreter.close();
 ```
 
-### Asynchronous Inference with `IsolateInterpreter`
+### Run inference in a background isolate
 
-To utilize asynchronous inference, first create your `Interpreter` and then wrap it with `IsolateInterpreter`.
+Create the regular interpreter, then wrap its native address:
 
 ```dart
-final interpreter = await Interpreter.fromAsset('assets/your_model.tflite');
+final interpreter =
+    await Interpreter.fromAsset('assets/your_model.tflite');
 final isolateInterpreter =
-        await IsolateInterpreter.create(address: interpreter.address);
-```
+    await IsolateInterpreter.create(address: interpreter.address);
 
-Both `run` and `runForMultipleInputs` methods of `isolateInterpreter` are asynchronous:
-
-```dart
 await isolateInterpreter.run(input, output);
 await isolateInterpreter.runForMultipleInputs(inputs, outputs);
+
+await isolateInterpreter.close();
+interpreter.close();
 ```
 
-By using `IsolateInterpreter`, the inference runs in a separate isolate. This ensures that the main isolate, responsible for UI tasks, remains unblocked and responsive.
+`IsolateInterpreter` performs inference away from the main isolate to avoid
+blocking UI work.
 
-## Contribute to this package
+## Examples
 
-This package is managed using [melos](https://pub.dev/packages/melos). Before starting to work on the project, make sure to run the bootstrap command.
+The [`example`](example) directory contains complete applications for:
+
+- audio, digit, gesture, image, and text classification;
+- BERT question answering;
+- image segmentation and pose estimation;
+- SSD MobileNet object detection;
+- style transfer and ESRGAN super resolution;
+- reinforcement learning.
+
+Several examples download model files through their own `scripts` directory.
+Read the example's README before building it.
+
+## TFLite Flutter Helper Library
+
+The former helper library is deprecated. For higher-level vision and media
+tasks, evaluate [MediaPipe for Flutter](https://github.com/google/flutter-mediapipe).
+
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a change. This repository
+uses [Melos](https://pub.dev/packages/melos):
 
 ```sh
-dart pub global activate melos # Install or activate melos globally
-melos bootstrap # Initialize the workspace and bootstrap the package
+dart pub global activate melos
+melos bootstrap
+flutter test
+flutter analyze
 ```
 
-### Generated code
-
-This package uses [ffigen](https://pub.dev/packages/ffigen) to generate FFI bindings. To run code generation, you can use the following melos command:
+FFI bindings are generated with [ffigen](https://pub.dev/packages/ffigen):
 
 ```sh
-melos run ffigen 
+melos run ffigen
 ```
+
+Do not hand-edit
+`lib/src/bindings/tensorflow_lite_bindings_generated.dart`.
+
+## Maintained Package
+
+This package is community maintained because the upstream project is no longer
+actively maintained. This repository continues
+[`dropout/flutter-tflite`](https://github.com/dropout/flutter-tflite) and the
+TensorFlow [`flutter-tflite`](https://github.com/tensorflow/flutter-tflite)
+project on which it is based. TensorFlow's repository is itself a managed fork
+of Amish Garg's original
+[`tflite_flutter_plugin`](https://github.com/am15h/tflite_flutter_plugin).
+
+Original project credits, copyright notices, contributor attribution, and
+license terms remain intact. See [AUTHORS](AUTHORS), [NOTICE](NOTICE),
+[THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES), the repository history, and
+[LICENSE](LICENSE).
+
+## Feature Requests
+
+Feature requests and Pull Requests are always welcome.
+
+- [Request a feature](https://github.com/47gurvinder/flutter-tflite/issues/new?template=feature_request.yml)
+- [Report or review bugs](https://github.com/47gurvinder/flutter-tflite/issues)
+- [Open or review Pull Requests](https://github.com/47gurvinder/flutter-tflite/pulls)
+
+## License and acknowledgements
+
+Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE).
+
+The original authors and contributors are credited in [AUTHORS](AUTHORS).
+Special thanks remain due to Amish Garg, the original author and Google Summer
+of Code participant, and to the TensorFlow maintainers and all contributors
+whose work forms the foundation of this package.
+
+Inherited BSD-licensed source notices and terms are preserved in
+[THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES).
+
+## Need help or a custom solution?
+
+Need help integrating this package, maintaining an existing project, or
+building a custom web, mobile, or AI solution? Get in touch to discuss your
+requirements:
+
+- [Contact Gurwinder DevX](https://gurwinderdevx.com/)
+- [Hire me on Upwork](https://www.upwork.com/freelancers/gurwinderdevx)
+
+## Author and support
+
+Maintained by **Gurwinder Singh**, a full-stack web and mobile application
+developer and founder of [Gurwinder DevX](https://gurwinderdevx.com/).
+
+- [GitHub](https://github.com/47gurvinder)
+- [LinkedIn](https://www.linkedin.com/in/gurwinderdevx/)
+- [Upwork](https://www.upwork.com/freelancers/gurwinderdevx)
+- [Buy Me a Coffee](https://buymeacoffee.com/gurwinderdevx)
+
+If this package helps your project, consider supporting its continued
+development through Buy Me a Coffee.

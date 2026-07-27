@@ -1,3 +1,4 @@
+// Modified 2026 by Gurwinder Singh for the tflite_flutter_gdx_plus distribution.
 /*
  * Copyright 2023 The TensorFlow Authors. All Rights Reserved.
  *
@@ -18,7 +19,7 @@ import 'dart:io';
 import 'dart:isolate';
 import 'package:camera/camera.dart';
 import 'package:image/image.dart' as image_lib;
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:tflite_flutter_gdx_plus/tflite_flutter_gdx_plus.dart';
 
 import '../image_utils.dart';
 

@@ -1,0 +1,40 @@
+# Modified 2026 for the tflite_flutter_gdx_plus distribution.
+
+# Local tooling and dependency state.
+.dart_tool/
+.idea/
+.melos_tool/
+.pub/
+.vscode/
+.fvm/
+.fvmrc
+*.iml
+pubspec.lock
+pubspec_overrides.yaml
+
+# Local build output and platform dependency caches.
+**/build/
+**/.gradle/
+**/.symlinks/
+**/Pods/
+**/xcuserdata/
+**/Flutter/ephemeral/
+**/Flutter/Generated.xcconfig
+**/Flutter/flutter_export_environment.sh
+**/local.properties
+**/Podfile.lock
+
+# Secrets and operating-system files.
+.DS_Store
+.env*
+*.jks
+*.keystore
+key.properties
+keystore.properties
+
+# Repository-only development configuration.
+.github/
+flutter-tflite.code-workspace
+
+# Downloadable example models. Example scripts fetch these when required.
+example/**/assets/models/

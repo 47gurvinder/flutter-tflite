@@ -1,3 +1,5 @@
+<!-- Modified in 2026 for tflite_flutter_gdx_plus. -->
+
 # Object Detection
 
 |      | Android | iOS | Linux | Mac | Windows | Web |
@@ -9,7 +11,7 @@ A object detection example following [this](https://www.tensorflow.org/lite/exam
 
 ## Overview
 
-This application is a simple demonstration of the [tflite_flutter](https://pub.dev/packages/tflite_flutter) package.
+This application is a simple demonstration of the [tflite_flutter_gdx_plus](https://pub.dev/packages/tflite_flutter_gdx_plus) package.
 
 After taking a photo or choosing an image from your gallery, the app takes a short period of time before displaying the image with the detected objects on the screen.
 

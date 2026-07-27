@@ -1,3 +1,4 @@
+// Modified 2026 by Gurwinder Singh for the tflite_flutter_gdx_plus distribution.
 /*
  * Copyright 2023 The TensorFlow Authors. All Rights Reserved.
  *
@@ -23,7 +24,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:tflite_flutter/tflite_flutter.dart' as tfl;
+import 'package:tflite_flutter_gdx_plus/tflite_flutter_gdx_plus.dart' as tfl;
 
 const dataFileName = 'permute_uint8.tflite';
 const missingFileName = 'missing.tflite';

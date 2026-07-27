@@ -1,3 +1,5 @@
+# Modified 2026 for the tflite_flutter_gdx_plus distribution.
+
 .DS_Store
 .atom/
 .idea/
@@ -80,9 +82,13 @@ yarn-error.log*
 example/object_detection_ssd_mobilenet/assets/models/labelmap.txt
 example/object_detection_ssd_mobilenet/assets/models/ssd_mobilenet.tflite
 
-**/assets/models/**
-**/assets/models/!README
-**/assets/models/.gitkeep
+**/assets/models/*
+!**/assets/models/README.md
+!**/assets/models/.gitkeep
+!example/audio_classification/assets/models/yamnet.tflite
+!example/audio_classification/assets/models/yamnet_label_list.txt
+!example/image_classification_mobilenet/assets/models/labels.txt
+!example/image_classification_mobilenet/assets/models/mobilenet_quant.tflite
 
 # FVM Version Cache
 .fvm/

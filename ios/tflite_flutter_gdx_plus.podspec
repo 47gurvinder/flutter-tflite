@@ -1,17 +1,21 @@
+# Modified 2026 for the tflite_flutter_gdx_plus distribution.
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint tflite_flutter.podspec` to validate before publishing.
+# Run `pod lib lint tflite_flutter_gdx_plus.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'tflite_flutter'
-  s.version          = '0.0.1'
-  s.summary          = 'TensorFlow Lite plugin for Flutter apps.'
+  s.name             = 'tflite_flutter_gdx_plus'
+  s.version          = '0.12.2'
+  s.summary          = 'Community-maintained TensorFlow Lite plugin for Flutter.'
   s.description      = <<-DESC
-TensorFlow Lite plugin for Flutter apps.
+Fast Dart FFI access to TensorFlow Lite for Flutter applications.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://gurwinderdevx.com/'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.authors          = {
+    'Gurwinder Singh' => 'contact@gurwinderdevx.com',
+    'Original authors and contributors' => 'https://github.com/dropout/flutter-tflite'
+  }
 
   # This will ensure the source files in Classes/ are included in the native
   # builds of apps using this FFI plugin. Podspec does not support relative
